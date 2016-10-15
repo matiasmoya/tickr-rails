@@ -1,0 +1,35 @@
+<h2><%= @ticket.subject %></h2>
+<p><%= @ticket.content %></p>
+
+<h2>Messages</h2>
+<ul>
+  <% @ticket.ticket_messages.each do |message| %>
+    <li><%= message.content %></li>
+  <% end %>
+</ul>
+
+<%= form_for @ticket_message, url: admin_ticket_ticket_messages_path(@ticket) do |f| %>
+  <div class="wrapper">
+    <% if @ticket_message.errors.any? %>
+      <div>
+        <div>
+          <%= pluralize(@ticket_message.errors.count, "error") %> prohibited this audit from being saved:
+        </div>
+        <div>
+          <ul>
+            <% @ticket_message.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="form-field">
+      <%= f.label :content, "Comments" %>
+      <%= f.text_area :content, size: "30x10" %>
+    </div>
+
+    <%= f.submit %>
+  </div>
+<% end %>

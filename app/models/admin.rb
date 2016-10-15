@@ -2,6 +2,7 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :tickets
   has_many :ticket_messages
 
   before_save :ensure_authentication_token
