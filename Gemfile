@@ -16,6 +16,7 @@ gem 'faker'
 gem 'figaro'
 
 gem 'devise'
+gem 'active_model_serializers', '~> 0.9.5'
 gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015084718) do
+ActiveRecord::Schema.define(version: 20161015133925) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20161015084718) do
     t.string   "authentication_token"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "ticket_messages", force: :cascade do |t|
+    t.integer  "ticket_id"
+    t.integer  "user_id"
+    t.integer  "admin_id"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_ticket_messages_on_admin_id"
+    t.index ["ticket_id"], name: "index_ticket_messages_on_ticket_id"
+    t.index ["user_id"], name: "index_ticket_messages_on_user_id"
   end
 
   create_table "tickets", force: :cascade do |t|
