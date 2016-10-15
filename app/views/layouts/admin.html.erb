@@ -4,16 +4,37 @@
     <title>TickrApi</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application'%>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <li>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-    </li>
+    <div class="container-fluid">
 
-    <%= yield %>
+      <div id="head-nav" class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right user-nav">
+              <li class="dropdown profile_menu">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" > </a>
+                  <span>
+                    <%= link_to 'Logout', destroy_admin_session_path, :method => :delete %>
+                  </span>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav not-nav">
+              <li class="button"><a href="#"><i class="fa fa-list-alt"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-mcont">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
+
 

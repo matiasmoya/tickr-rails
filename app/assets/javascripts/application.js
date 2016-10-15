@@ -1,16 +1,21 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
+//= require ./template/jquery
+//= require ./template/jquery.cookie/jquery.cookie
+//= require ./template/jquery.pushmenu/js/jPushMenu
+//= require ./template/jquery.nanoscroller/jquery.nanoscroller
+//= require ./template/jquery.sparkline/jquery.sparkline.min
+//= require ./template/jquery.ui/jquery-ui
+//= require ./template/jquery.gritter/js/jquery.gritter
+//= require ./template/behaviour/core
+//= require ./template/bootstrap/dist/js/bootstrap.min
+//= require ./template/jquery.codemirror/lib/codemirror
+//= require ./template/jquery.codemirror/mode/xml/xml
+//= require ./template/jquery.codemirror/mode/css/css
+//= require ./template/jquery.codemirror/mode/htmlmixed/htmlmixed
+//= require ./template/jquery.codemirror/addon/edit/matchbrackets
+//= require ./template/jquery.vectormaps/jquery-jvectormap-1.2.2.min
+//= require ./template/jquery.vectormaps/maps/jquery-jvectormap-world-mill-en
+//= require ./template/behaviour/dashboard
+//= require ./template/bootstrap.daterangepicker/moment.min.js
+//= require ./template/bootstrap.daterangepicker/daterangepicker.js
+//= require ./template/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
