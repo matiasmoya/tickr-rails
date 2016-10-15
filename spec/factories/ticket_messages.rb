@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :ticket_message do
-    ticket nil
-    user nil
+    ticket
+    user
     admin nil
-    content "MyString"
+    content "A ticket message"
   end
 end

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :tickets
-      resources :ticket_messages
+      resources :tickets, only: [:index, :show, :create]
+      resources :ticket_messages, only: :create
     end
   end
 

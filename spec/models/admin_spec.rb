@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Admin, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:admin) { create(:admin) }
+
+  subject { admin }
+
+  describe "Validations" do
+    it { should respond_to(:email) }
+  end
+
+  describe "Factory" do
+    it "creates a valid admin" do
+      expect(admin).to be_valid
+    end
+  end
 end
