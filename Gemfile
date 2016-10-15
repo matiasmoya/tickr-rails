@@ -16,10 +16,11 @@ gem 'factory_girl_rails'
 gem 'faker'
 gem 'figaro'
 
-
 gem 'devise'
 gem 'active_model_serializers', '~> 0.9.5'
 gem 'rack-cors', :require => 'rack/cors'
+
+gem 'wicked_pdf'
 
 group :development, :test do
   gem 'byebug', platform: :mri

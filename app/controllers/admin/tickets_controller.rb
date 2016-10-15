@@ -4,6 +4,16 @@ class Admin::TicketsController < Admin::BaseController
   def index
     @unclaimed_tickets = Ticket.unclaimed
     @my_tickets = current_admin.tickets
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf         => "file_name",
+               :template    => 'admin/tickets/index.pdf.erb',
+               :page_size   => "A4",
+               :encoding    =>  'utf-8'
+        end
+    end
   end
 
   def show
