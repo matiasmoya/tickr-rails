@@ -1,24 +1,24 @@
-# README
+# Tickr API Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+You probably want to install a ruby environment manager like [RVM](https://rvm.io/rvm/install)
 
-* Ruby version
+Ruby version `2.3.0`
 
-* System dependencies
+Install Bundler `gem install bundler`
 
-* Configuration
+Run `bundle install`
 
-* Database creation
+Run migrations
 
-* Database initialization
+```shell
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
 
-* How to run the test suite
+Copy `config/database.yml.sample` to `config/database.yml` and configure it to your needs
 
-* Services (job queues, cache servers, search engines, etc.)
+## Running Tests
 
-* Deployment instructions
-
-* ...
+`bundle exec rspec`
