@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :ticket do
-    user nil
+    user
     admin nil
-    subject "MyString"
-    status "MyString"
-    content "MyText"
+    subject "Ticket for testing"
+    status "pending"
+    content "This is a ticket for testing"
   end
 end

@@ -1,10 +1,10 @@
 class Api::V1::TicketsController < Api::V1::BaseController
   def index
-    render json: { tickets: Ticket.all }, status: :ok
+    render json: current_user.tickets, status: :ok
   end
 
   def show
-    @ticket = Ticket.joins(:ticket_messages).find(params[:id])
+    @ticket = current_user.tickets.find(params[:id])
     render json: @ticket
   end
 
