@@ -1,7 +1,23 @@
-<h2>Unclaimed Tickets</h2>
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <p id="notice">
+      <%= notice %>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <h2>Unclaimed Tickets</h2>
+  </div>
+</div>
 
 <%= render 'list', tickets: @unclaimed_tickets %>
 
-<h2>My Tickets</h2>
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <h2>My Tickets</h2>
+  </div>
+</div>
 
 <%= render 'list', tickets: @my_tickets %>

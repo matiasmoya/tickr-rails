@@ -24,7 +24,11 @@
             </ul>
 
             <ul class="nav navbar-nav not-nav">
-              <li class="button"><a href="#"><i class="fa fa-list-alt"></i></a></li>
+              <li class="button">
+                <%= link_to admin_tickets_path do %>
+                  <i class="fa fa-list-alt"></i>
+                <% end %>
+              </li>
             </ul>
           </div>
         </div>

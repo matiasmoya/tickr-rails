@@ -1,26 +1,41 @@
-<table cellspacing='0'>
-  <thead>
-    <tr>
-      <th>Subject</th>
-      <th>Date and time</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% tickets.each do |ticket| %>
-      <tr data-insight="<%= ticket.id %>" class="js--tr-clickeable">
-        <td>
-          <%= ticket.subject %>
-        </td>
-        <td>
-          <%= ticket.created_at.strftime("%m.%d.%y at %l:%M %p") %>
-        </td>
-        <% if ticket.unclaimed? %>
-          <td><%= link_to 'Claim', admin_ticket_claim_path(ticket), method: :post  %></td>
-        <% else %>
-          <td><%= link_to 'Respond', admin_ticket_path(ticket) %></td>
+<div class="row">
+  <div class=".col-sm-12.col-md-12">
+    <div class="block-flat">
+      <div class="content">
+        <%- if tickets.any? %>
+          <table class="no-border">
+            <thead class='no-border'>
+              <tr>
+                <th>Subject</th>
+                <th>Date and time</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class=' no-border-x no-border-y'>
+              <% tickets.each do |ticket| %>
+                <tr data-insight="<%= ticket.id %>" class="js--tr-clickeable">
+                  <td>
+                    <%= ticket.subject %>
+                  </td>
+                  <td>
+                    <%= ticket.created_at.strftime("%m.%d.%y at %l:%M %p") %>
+                  </td>
+                  <% if ticket.unclaimed? %>
+                    <td><%= link_to 'Claim', admin_ticket_claim_path(ticket), method: :post  %></td>
+                  <% else %>
+                    <td><%= link_to 'Respond', admin_ticket_path(ticket) %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <%- else %>
+          <div class="alert alert-info">
+            <i class="fa fa-info-circle sign"></i>
+            <strong>There aren't tickets</strong>
+          </div>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+  </div>
+</div>
