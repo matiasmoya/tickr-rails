@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015133925) do
+ActiveRecord::Schema.define(version: 20161015192244) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(version: 20161015133925) do
     t.string   "subject"
     t.string   "status"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "closed",     default: false
     t.index ["admin_id"], name: "index_tickets_on_admin_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end

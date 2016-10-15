@@ -13,7 +13,7 @@
             </thead>
             <tbody class=' no-border-x no-border-y'>
               <% tickets.each do |ticket| %>
-                <tr data-insight="<%= ticket.id %>" class="js--tr-clickeable">
+                <tr data-ticket="<%= ticket.id %>" class="js--tr-clickeable">
                   <td>
                     <%= ticket.subject %>
                   </td>
@@ -21,9 +21,15 @@
                     <%= ticket.created_at.strftime("%m.%d.%y at %l:%M %p") %>
                   </td>
                   <% if ticket.unclaimed? %>
-                    <td><%= link_to 'Claim', admin_ticket_claim_path(ticket), method: :post, class: "btn btn-info"  %></td>
+                    <td>
+                      <%= link_to 'Claim', admin_ticket_claim_path(ticket), method: :post, class: "btn btn-info"  %>
+                      <%= link_to 'View', admin_ticket_path(ticket), class: "btn btn-info" %>
+                    </td>
                   <% else %>
-                    <td><%= link_to 'Respond', admin_ticket_path(ticket), class: "btn btn-info" %></td>
+                    <td>
+                      <%= link_to 'Respond', edit_admin_ticket_path(ticket), class: "btn btn-info" %>
+                      <a href="#" class="<%= status_class(ticket) %>"><%= status_label(ticket) %></a>
+                      </td>
                   <% end %>
                 </tr>
               <% end %>

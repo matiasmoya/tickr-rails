@@ -11,13 +11,13 @@ class Admin::TicketsController < Admin::BaseController
     @ticket_message = @ticket.ticket_messages.build
   end
 
-  def edit; end
+  def edit
+    @ticket_message = @ticket.ticket_messages.build
+  end
 
   def update
-    @ticket = current_admin.tickets.find(params[:id])
-
-    if @ticket.update_attributes(ticket_params)
-      redirect_to admin_tickets_path, notice: "Changes has been saved"
+    if @ticket.switch_closed_status
+      redirect_to admin_tickets_path, notice: "The ticket has been updated"
     else
       render :edit
     end
@@ -26,9 +26,5 @@ class Admin::TicketsController < Admin::BaseController
 protected
   def set_claimed_ticket
     @ticket = current_admin.tickets.find(params[:id])
-  end
-
-  def ticket_params
-    params.require(:ticket).permit(:status)
   end
 end

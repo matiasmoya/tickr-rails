@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <div class="spacer spacer-bottom">
+      <%= link_to switch_status(@ticket), admin_ticket_path(@ticket), method: :put, class: 'btn btn-block btn-primary btn-rad' %>
+    </div>
+    <div class="message">
+      <div class="head">
+        <h3>Subject:  <%= @ticket.subject %></h3>
+        <span><%= @ticket.created_at.strftime("%m/%d/%Y - %I:%M%p") %></span>
+      </div>
+      <div class="mail">
+        <p><%= @ticket.content %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class=" col-sm-12 col-md-12">
+    <h2>Messages</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <%- if @ticket.ticket_messages.size > 1 %>
+      <% @ticket.ticket_messages.each do |message| %>
+        <div class="message">
+          <div class="mail">
+            <p><%= message.content %></p>
+          </div>
+        </div>
+      <% end %>
+    <%- else %>
+      <div class="alert alert-info">
+        <i class="fa fa-info-circle sign"></i>
+        <strong>There aren't answers</strong>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <%= form_for @ticket_message, url: admin_ticket_ticket_messages_path(@ticket) do |f| %>
+      <div class="wrapper">
+        <% if @ticket_message.errors.any? %>
+          <div>
+            <div>
+              <%= pluralize(@ticket_message.errors.count, "error") %> prohibited this audit from being saved:
+            </div>
+            <div>
+              <ul>
+                <% @ticket_message.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+
+        <div class=".form-group">
+          <%= f.label :content, "Comments" %>
+          <%= f.text_area :content, class: "form-control", size: "30x10" %>
+        </div>
+
+        <%= f.submit "Create Ticket message", class: "btn btn-info margin-top-30" %>
+      </div>
+    <% end %>
+  </div>
+</div>
