@@ -24,10 +24,11 @@
             </ul>
 
             <ul class="nav navbar-nav not-nav">
-              <li class="button">
-                <%= link_to admin_tickets_path do %>
-                  <i class="fa fa-list-alt"></i>
-                <% end %>
+              <li class="profile_menu">
+                <%= link_to 'Tickets', admin_tickets_path, class: "toggle-menu menu-right push-body" %>
+              </li>
+              <li class="profile_menu">
+                <%= link_to "PDF Report", admin_tickets_path(format: :pdf), class: "toggle-menu menu-right push-body" %>
               </li>
             </ul>
           </div>

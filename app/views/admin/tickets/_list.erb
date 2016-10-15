@@ -22,12 +22,12 @@
                   </td>
                   <% if ticket.unclaimed? %>
                     <td>
-                      <%= link_to 'Claim', admin_ticket_claim_path(ticket), method: :post, class: "btn btn-info"  %>
+                      <%= link_to 'Claim', admin_ticket_claim_path(ticket), method: :post, class: "btn btn-primary"  %>
                       <%= link_to 'View', admin_ticket_path(ticket), class: "btn btn-info" %>
                     </td>
                   <% else %>
                     <td>
-                      <%= link_to 'Respond', edit_admin_ticket_path(ticket), class: "btn btn-info" %>
+                      <%= link_to 'Respond', admin_ticket_path(ticket), class: "btn btn-primary" %>
                       <a href="#" class="<%= status_class(ticket) %>"><%= status_label(ticket) %></a>
                       </td>
                   <% end %>

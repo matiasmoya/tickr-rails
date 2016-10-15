@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+  </head>
+  <body onload='number_pages'>
+     
+    <div class="row">
+      <h1>Pending tickets</h1>
+    </div>
+
+    <div class="row">
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>User</th>
+            <th>Date and time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Ticket.all.each do |ticket| %>
+            <tr data-insight="<%= ticket.id %>" class="js--tr-clickeable">
+              <td>
+                <%= ticket.subject %>
+              </td>
+              <td>
+                <%= ticket.user.email %>
+              </td>
+              <td>
+                <%= ticket.created_at.strftime("%m.%d.%y at %l:%M %p") %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
