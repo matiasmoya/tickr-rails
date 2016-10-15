@@ -21,9 +21,9 @@
                     <%= ticket.created_at.strftime("%m.%d.%y at %l:%M %p") %>
                   </td>
                   <% if ticket.unclaimed? %>
-                    <td><%= link_to 'Claim', admin_ticket_claim_path(ticket), method: :post, class: "btn btn-info"  %></td>
+                    <td><%= link_to 'Claim', admin_ticket_claim_path(ticket), method: :post, class: "btn btn-primary"  %></td>
                   <% else %>
-                    <td><%= link_to 'Respond', admin_ticket_path(ticket), class: "btn btn-info" %></td>
+                    <td><%= link_to 'Respond', admin_ticket_path(ticket), class: "btn btn-primary" %></td>
                   <% end %>
                 </tr>
               <% end %>
